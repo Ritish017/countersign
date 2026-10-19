@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Countersign · mandate-guarded payments agent</title>
+<link rel="stylesheet" href="/static/styles.css">
+<link rel="stylesheet" href="/static/vendor/ag-grid/ag-grid.css">
+<link rel="stylesheet" href="/static/vendor/ag-grid/ag-theme-quartz.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="mark">✓✓</span><div><h1>Countersign</h1><p>AI pays your bills on PayPal, only inside the mandate you wrote.</p></div></div>
+  <div class="modes"><span id="modes" class="modes"></span><button id="open-lab" class="labbtn">⚔ Attack Lab</button><button id="open-ledger" class="labbtn ghost">Ledger</button></div>
+</header>
+<main class="grid">
+  <section class="col" id="inbox-col">
+    <h2>Inbox</h2>
+    <div id="samples" class="samples"></div>
+    <textarea id="raw" placeholder="Paste an invoice, bill or purchase request…"></textarea>
+    <button id="process" class="primary">Run agent on this document</button>
+    <h3>Cases</h3>
+    <ul id="cases" class="cases"></ul>
+  </section>
+  <section class="col wide" id="case-col">
+    <div id="case" class="empty">Pick a sample or paste a document, then run the agent.</div>
+  </section>
+  <section class="col" id="mandate-col">
+    <h2>Your mandate</h2>
+    <textarea id="policy" rows="7"></textarea>
+    <button id="compile">Compile with AI</button>
+    <div id="rules" class="rules"></div>
+    <h3>This month</h3>
+    <div id="budgets"></div>
+    <h3>Audit trail</h3>
+    <ol id="events" class="events"></ol>
+  </section>
+</main>
+<section id="lab" class="panel hidden">
+  <div class="panel-head"><div><h2>Attack Lab</h2><p class="muted">Throws a labelled corpus of fraud and prompt-injection bills at your <b>current</b> mandate, each in a throwaway sandbox with a mock PayPal. Nothing real is touched.</p></div>
+    <div><button id="run-lab" class="primary small">Run the attack corpus</button> <button class="close" data-close="lab">Close</button></div></div>
+  <div id="lab-summary" class="labsum"></div>
+  <div id="lab-grid" class="ag-theme-quartz grid-box"></div>
+</section>
+<section id="ledger" class="panel hidden">
+  <div class="panel-head"><div><h2>Ledger</h2><p class="muted">Every case, its mandate decision and its PayPal reference. Sort, filter and export as CSV.</p></div>
+    <div><button id="export-ledger">Export CSV</button> <button class="close" data-close="ledger">Close</button></div></div>
+  <div id="ledger-grid" class="ag-theme-quartz grid-box"></div>
+</section>
+<script src="/static/vendor/ag-grid/ag-grid-community.min.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>
