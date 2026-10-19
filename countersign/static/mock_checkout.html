@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Mock PayPal approval</title>
+<link rel="stylesheet" href="/static/styles.css"></head>
+<body class="mockpp"><div class="mockcard">
+<div class="mockbadge">MOCK MODE: stands in for the PayPal sandbox buyer approval page</div>
+<h2>Approve payment</h2><p class="muted">{{DESC}}</p>
+<p class="amount">{{AMOUNT}}</p><p class="muted">Order {{OID}}</p>
+<form method="post" action="/mock-paypal/checkout/{{OID}}/approve"><button class="primary" id="approve">Pay now</button></form>
+</div></body></html>
